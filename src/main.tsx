@@ -3,7 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
-import { HomeLayout } from './pages'
+import { Appod, HomeLayout, Hubble, Landing, News, SpaceX, Webb } from './pages'
+import { newsPageLoader } from './pages/News'
+
 
 
 const router = createBrowserRouter([
@@ -14,7 +16,8 @@ const router = createBrowserRouter([
     },
     {
     path :"news",
-    element: <News/>
+    element: <News/>,
+    loader: newsPageLoader
     },
     {
     path :"webb",

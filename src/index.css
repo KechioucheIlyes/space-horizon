@@ -8,16 +8,21 @@
 
 @font-face {
     font-family: sf-mono;
-    src: url("./assets/fonts/sf/SF TransRobotics.ttf");
+    src: url("./assets/fonts/sf/SF\ TransRobotics\ Bold.ttf");
 }
 
 @font-face {
     font-family: mars;
     src: url("./assets/fonts/mars/Mars Bold.otf");
 }
+@font-face {
+    font-family: Montserrat;
+    src: url("./assets/fonts/Montserrat/static/Montserrat-Medium.ttf");
+}
+
 
 body{
-    font-family:sf-mono, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family:Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 @layer base {
@@ -132,6 +137,9 @@ body{
         font-family: mars;
     }
     .test {
-      @apply border-2 border-black
+      @apply border-2 border-black;
+    }
+    .align-element {
+      @apply max-w-6xl mx-auto px-8;
     }
 }

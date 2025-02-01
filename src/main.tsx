@@ -5,6 +5,7 @@ import './index.css'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import { Appod, HomeLayout, Hubble, Landing, News, SpaceX, Webb } from './pages'
 import { newsPageLoader } from './pages/News'
+import { ErrorElement } from './components'
 
 
 
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
     {
     path :"news",
     element: <News/>,
-    loader: newsPageLoader
+    loader: newsPageLoader,
+    errorElement : <ErrorElement/>
     },
     {
     path :"webb",

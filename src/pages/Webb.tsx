@@ -1,6 +1,7 @@
+import { RelatedNews, Title } from "@/components"
 import { jwstCustomFetch, snapiCustomFetch } from "@/utils/custom-fetch"
 import { News, NewsResponse, WebbImage, WebbImageResponse, WebbNewsAndImagery } from "@/utils/types"
-import { LoaderFunction } from "react-router-dom"
+import { LoaderFunction, useLoaderData } from "react-router-dom"
 
 
 const newParams = {
@@ -51,8 +52,16 @@ try {
 
 
 const Webb = () => {
+  const {news , imagery} = useLoaderData() as WebbNewsAndImagery
   return (
-    <div>Webb</div>
+    <section className="section">
+      <Title text="James Web Telescope"/>
+      {news && <RelatedNews news={news} />}
+      <Title text="In Brief"/>
+      <WebTelescopSummary/>
+      <Title text="Recent Imagery"/>
+
+    </section>
   )
 }
 

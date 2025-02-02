@@ -11,4 +11,6 @@ export {default as OverView} from './OverView'
 export {default as Filters} from './Filters'
 export {default as FormInput} from './FormInput'
 export {default as AppodPlayer} from './AppodPlayer'
+export {default as RelatedNews } from "./RelatedNews"
+export {default as NewsCard } from "./NewsCard"
 

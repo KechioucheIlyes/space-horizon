@@ -8,6 +8,7 @@ import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
 import { appodPageLoader } from './pages/Appod'
+import { webbPageLoader } from './pages/Webb'
 
 
 
@@ -25,7 +26,9 @@ const router = createBrowserRouter([
     },
     {
     path :"webb",
-    element: <Webb/>
+    element: <Webb/>, 
+    loader : webbPageLoader, 
+    errorElement : <ErrorElement/>
     },
     {
     path :"spacex",

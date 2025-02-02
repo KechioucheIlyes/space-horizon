@@ -13,4 +13,6 @@ export {default as FormInput} from './FormInput'
 export {default as AppodPlayer} from './AppodPlayer'
 export {default as RelatedNews } from "./RelatedNews"
 export {default as NewsCard } from "./NewsCard"
+export {default as WebTelescopSummary } from "./WebTelescopSummary"
+export {default as ImageCard } from "./ImageCard"
 

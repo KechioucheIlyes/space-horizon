@@ -1,4 +1,5 @@
-import { RelatedNews, Title } from "@/components"
+import { CardsGrid, RelatedNews, Title } from "@/components"
+import WebTelescopSummary from "@/components/WebTelescopSummary"
 import { jwstCustomFetch, snapiCustomFetch } from "@/utils/custom-fetch"
 import { News, NewsResponse, WebbImage, WebbImageResponse, WebbNewsAndImagery } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router-dom"
@@ -60,7 +61,7 @@ const Webb = () => {
       <Title text="In Brief"/>
       <WebTelescopSummary/>
       <Title text="Recent Imagery"/>
-
+{imagery && <CardsGrid objects={imagery} mode="Imagery"/>}
     </section>
   )
 }

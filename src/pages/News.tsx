@@ -1,6 +1,6 @@
 import { CardsGrid, Filters, OverView, Title } from "@/components"
 import { snapiCustomFetch } from "@/utils/custom-fetch"
-import { NewsResponse } from "@/utils/types"
+import { FilterParams, NewsResponse, NewsResponseWithParams } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router"
 
 const newParams = {
@@ -8,9 +8,9 @@ const newParams = {
   limit : 20,
   ordering : "-published_at"
 }
-export const newsPageLoader:LoaderFunction = async({request}):Promise<NewsResponse| null> => {
+export const newsPageLoader:LoaderFunction = async({request}):Promise<NewsResponseWithParams| null> => {
 try {
-  const params = Object.fromEntries([...new URL(request.url).searchParams.entries()])
+  const params:FilterParams = Object.fromEntries([...new URL(request.url).searchParams.entries()])
   const formattedParams = {
     search: params.term ? params.term : "",
     ...newParams
@@ -18,7 +18,7 @@ try {
   const resp = await snapiCustomFetch.get<NewsResponse>("" , {
     params : formattedParams
   })
-  return resp.data
+  return {response : resp.data , params}
 } catch (error) {
   console.log(error);
   return null
@@ -26,17 +26,17 @@ try {
 }
 }
 const News = () => {
-  const data =useLoaderData() as NewsResponse
+  const data =useLoaderData() as NewsResponseWithParams
 
-  const {results} =data
+  const {response , params} =data
   console.log(data);
   
   return (
     <section className="section">
       <Title text="All news"/>
-      <Filters term="term" mode="news"/>
+      <Filters term={params.term} mode="news" key={params.term}/>
       <OverView objects={data}/>
-      <CardsGrid objects={results} mode="news-page" />
+      <CardsGrid objects={response} mode="news-page" />
     </section>
   )
 }

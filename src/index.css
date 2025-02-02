@@ -145,4 +145,7 @@ body{
     .section {
       @apply min-h-[100vh] align-element px-0 py-12
     }
+    .slider-card {
+      @apply hover:scale-105 transition-all
+    }
 }

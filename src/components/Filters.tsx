@@ -14,7 +14,7 @@ const Filters = ({term , mode} : {term:string | undefined , mode:string} ) : Rea
         <div className="self-end flex gap-2">
             <Button type="submit" variant={"outline"} size={"lg"}>Search</Button>
             <Button type="button" variant={'outline'} size={'lg'}>
-                <Link to={"/news"}>Reset</Link>
+                <Link to={mode==='news'? "/news" : "/hubble"}>Reset</Link>
             </Button>
         </div>
     </Form>

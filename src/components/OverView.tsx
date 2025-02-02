@@ -1,4 +1,4 @@
-import {  HubbleImagesResponse, NewsResponse, NewsResponseWithParams } from '@/utils/types'
+import {  HubbleImagesResponse, NewsResponseWithParams } from '@/utils/types'
 import { ReactNode } from 'react'
 
 

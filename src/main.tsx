@@ -33,7 +33,8 @@ const router = createBrowserRouter([
     {
     path :"hubble",
     element: <Hubble/>,
-    loader : hubblePageLoader
+    loader : hubblePageLoader,
+    errorElement : <ErrorElement/>
     },
     {
     path :"appod",

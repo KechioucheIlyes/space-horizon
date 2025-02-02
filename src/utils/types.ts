@@ -66,3 +66,20 @@ export type HubbleImages = {
     url:string;
     tags:string;
 }
+
+export type HubbleImagesResponseWithParams = {
+    response : HubbleImagesResponse ;
+    params : FilterParams;
+}
+
+"kHZGCYP8YmyVqelB735gbjqw0cOdN6JjJXAx46As"
+
+export type AppodType = {
+    date :string;
+    explanation :string;
+    hdurl :string;
+    media_type :string;
+    service_version :string;
+    title :string;
+    url :string;
+}

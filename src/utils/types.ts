@@ -85,3 +85,42 @@ export type AppodType = {
 }
 
 
+export type WebbImageResponse = {
+        statusCode : number;
+        body : WebbImage[];
+        error : string;
+       
+      }
+
+
+    export type WebbImage = {
+    id: string;
+    observation_id: string;
+    program: number;
+    details: {
+        mission: string;
+        instruments: [
+        {
+            instrument: string;
+        },
+        {
+            instrument: string;
+        },
+        {
+            instrument: string;
+        },
+        {
+            instrument: string;
+        },
+        {
+            instrument: string;
+        }
+        ],
+        suffix: string;
+        description: string;
+    },
+    file_type: string;
+    thumbnail: string;
+    location:string;
+    }
+

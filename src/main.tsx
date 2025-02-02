@@ -6,6 +6,7 @@ import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import { Appod, HomeLayout, Hubble, Landing, News, SpaceX, Webb } from './pages'
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
+import { hubblePageLoader } from './pages/Hubble'
 
 
 
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
     },
     {
     path :"hubble",
-    element: <Hubble/>
+    element: <Hubble/>,
+    loader : hubblePageLoader
     },
     {
     path :"appod",

@@ -7,6 +7,7 @@ import { Appod, HomeLayout, Hubble, Landing, News, SpaceX, Webb } from './pages'
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
+import { appodPageLoader } from './pages/Appod'
 
 
 
@@ -38,7 +39,9 @@ const router = createBrowserRouter([
     },
     {
     path :"appod",
-    element: <Appod/>
+    element: <Appod/>,
+    loader : appodPageLoader,
+    errorElement : <ErrorElement/>
     },
 
 ]}

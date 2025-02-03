@@ -1,6 +1,7 @@
+import { CardsGrid, RelatedNews, Title } from "@/components"
 import { snapiCustomFetch, spacexCustomFetch } from "@/utils/custom-fetch"
 import { News, NewsResponse, Rocket, SpaceXNewsAndRockets } from "@/utils/types"
-import { LoaderFunction } from "react-router"
+import { LoaderFunction, useLoaderData } from "react-router"
 
 const newParams = {
   news_site_exclude:"SpacePolicyOnline.com",
@@ -62,8 +63,14 @@ export const spaceXPageLoader:LoaderFunction = async ():Promise<SpaceXNewsAndRoc
   }
 }
 const SpaceX = () => {
+
+const {news, rockets} = useLoaderData() as SpaceXNewsAndRockets
   return (
-    <div>SpaceX</div>
+    <section className="section" >
+      {news && <RelatedNews news={news}/>}
+      <Title text="Rockets"></Title>
+      {rockets && <CardsGrid objects={rockets} mode="rockets"/>}
+    </section>
   )
 }
 

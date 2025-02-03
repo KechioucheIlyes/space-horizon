@@ -1,10 +1,10 @@
-import {  HubbleImages, HubbleImagesResponse,  News,  NewsResponse, WebbImage } from '@/utils/types'
+import {  HubbleImages, HubbleImagesResponse,  News,  NewsResponse, Rocket, WebbImage } from '@/utils/types'
 import  { ReactNode } from 'react'
 import NewPageCard from './NewPageCard'
 import HubbleCard from './HubbleCard'
 import ImageCard from './ImageCard'
 
-const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesResponse | WebbImage[], mode:string}): ReactNode => {
+const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesResponse | WebbImage[] | (Rocket | null)[] , mode:string}): ReactNode => {
   
  if (mode==="hubble-page"){
   return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">{(objects as HubbleImagesResponse).results.map((object , index) => (
@@ -27,6 +27,10 @@ const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesRespo
 {(objects as WebbImage[]).map((object , index) => (
   <ImageCard image={object} key={index} />
 ))}
+  </div>
+ }else if (mode==='rockets') {
+  return <div className="">
+    {(objects as (Rocket | null)[]).map((object, index) => <div className="test min-h-[100px]"></div>)}
   </div>
  }
 

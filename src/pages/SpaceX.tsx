@@ -1,4 +1,5 @@
 import { snapiCustomFetch, spacexCustomFetch } from "@/utils/custom-fetch"
+import { News, NewsResponse, Rocket, SpaceXNewsAndRockets } from "@/utils/types"
 import { LoaderFunction } from "react-router"
 
 const newParams = {
@@ -7,10 +8,29 @@ const newParams = {
   ordering : "-published_at",
   summary_contains : "spacex"
 }
+const starShipUrl ="rockets/starship"
+const falcon9Url ="rockets/falcon9"
+const falconHeavyUrl ="rockets/falconheavy"
+const rocketsUrls = [
+  starShipUrl,
+  falcon9Url,
+  falconHeavyUrl
+]
 
-export const newsFetch = async ()=> {
+export const newsFetch = async ():Promise<News[] | null>=> {
   try {
-    const resp = await snapiCustomFetch.get('' , {params : newParams})
+    const resp = await snapiCustomFetch.get<NewsResponse>('' , {params : newParams})
+    return resp.data.results
+  } catch (error) {
+    console.log(error);
+    return null
+    
+  }
+}
+export const rocketFetch = async (rocketUrl : string) : Promise<Rocket | null>=> {
+  try {
+    const resp = await spacexCustomFetch.get<Rocket>(rocketUrl)
+    console.log(resp.data);
     return resp.data
   } catch (error) {
     console.log(error);
@@ -18,10 +38,11 @@ export const newsFetch = async ()=> {
     
   }
 }
-export const rocketsFetch = async ()=> {
+export const rocketsFetch = async ():Promise<(Rocket | null)[] | null> => {
   try {
-    const resp = await spacexCustomFetch.get('rockets/starship' )
-    return resp.data
+    const resp : (Rocket | null)[]= await Promise.all(rocketsUrls.map(url => rocketFetch(url)))
+    console.log(resp);
+    return resp
   } catch (error) {
     console.log(error);
     return null
@@ -29,7 +50,8 @@ export const rocketsFetch = async ()=> {
   }
 }
 
-export const spaceXPageLoader:LoaderFunction = async () => {
+
+export const spaceXPageLoader:LoaderFunction = async ():Promise<SpaceXNewsAndRockets | null> => {
   try {
     const [news , rockets] = await Promise.all([newsFetch() , rocketsFetch()])
     return {news , rockets} 

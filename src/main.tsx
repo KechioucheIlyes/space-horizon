@@ -9,6 +9,7 @@ import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
 import { appodPageLoader } from './pages/Appod'
 import { webbPageLoader } from './pages/Webb'
+import { spaceXPageLoader } from './pages/SpaceX'
 
 
 
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
     },
     {
     path :"spacex",
-    element: <SpaceX/>
+    element: <SpaceX/>,
+    loader : spaceXPageLoader, 
+    errorElement : <ErrorElement/>
     },
     {
     path :"hubble",

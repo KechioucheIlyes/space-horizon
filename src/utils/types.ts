@@ -242,3 +242,8 @@ export type Rocket = {
         rocket_type: string
       
 }
+
+export type SpaceXNewsAndRockets = {
+  news : News[] | null ;
+  rockets : (Rocket | null)[] | null
+}

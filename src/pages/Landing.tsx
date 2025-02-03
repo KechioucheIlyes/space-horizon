@@ -1,3 +1,4 @@
+import { AppodLauncher, HubbleLauncher, NewsLauncher, SpaceXLauncher, WebbLauncher } from "@/components";
 import { apodNasaCustomFetch, datastroCustomFetch, snapiCustomFetch } from "@/utils/custom-fetch"
 import { AppodType, HubbleImages, HubbleImagesResponse, LandingPageNewsAppodHubble, News, NewsResponse } from "@/utils/types";
 import { LoaderFunction, useLoaderData } from "react-router"
@@ -56,7 +57,13 @@ const Landing = () => {
   console.log("data", data);
   
   return (
-    <div>Landing</div>
+    <section>
+      <NewsLauncher/>
+      <SpaceXLauncher/>
+      <AppodLauncher/>
+      <WebbLauncher/>
+      <HubbleLauncher/>
+    </section>
   )
 }
 

@@ -3,6 +3,7 @@ import NewsLauncherHeader from './NewsLauncherHeader'
 import NewsLauncherSquaredCards from './NewsLauncherSquaredCards'
 import { useLoaderData } from 'react-router'
 import { LandingPageNewsAppodHubble } from '@/utils/types'
+import { NewsLauncherBubbleCards } from '.'
 
 const NewsLauncher = () => {
  const {news} =  useLoaderData() as LandingPageNewsAppodHubble
@@ -13,7 +14,8 @@ const NewsLauncher = () => {
       <div className="align-element h-full">
         <NewsLauncherHeader/>
        { news && <NewsLauncherSquaredCards news={news}/>}
-
+       { news && <NewsLauncherBubbleCards news={news}/>}
+        
       </div>
     </article>
   )

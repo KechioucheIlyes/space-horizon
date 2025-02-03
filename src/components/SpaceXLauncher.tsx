@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const SpaceXLauncher = () => {
   return (
-    <article className="test w-full h-[40vh] spacex ">
+    <article className="w-full h-[40vh] spacex ">
       <div className="align-element text-zinc-300">
         <p className="font-bold text-4xl ">
             More About SpaceX

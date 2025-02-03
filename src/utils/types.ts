@@ -155,7 +155,8 @@ export type Rocket = {
         mass: {
           kg: number
           lb: number
-        }
+        },
+        flickr_images: string[];
         payload_weights: [
           {
             id: string

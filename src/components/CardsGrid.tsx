@@ -3,6 +3,7 @@ import  { ReactNode } from 'react'
 import NewPageCard from './NewPageCard'
 import HubbleCard from './HubbleCard'
 import ImageCard from './ImageCard'
+import RocketCard from './RocketCard'
 
 const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesResponse | WebbImage[] | (Rocket | null)[] , mode:string}): ReactNode => {
   
@@ -30,7 +31,11 @@ const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesRespo
   </div>
  }else if (mode==='rockets') {
   return <div className="">
-    {(objects as (Rocket | null)[]).map((object, index) => <div className="test min-h-[100px]"></div>)}
+    {(objects as (Rocket | null)[]).map((object, index) => 
+    
+    <RocketCard rocket={object}  key={index}/>
+    
+    )}
   </div>
  }
 

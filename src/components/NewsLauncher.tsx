@@ -6,6 +6,8 @@ import { LandingPageNewsAppodHubble } from '@/utils/types'
 
 const NewsLauncher = () => {
  const {news} =  useLoaderData() as LandingPageNewsAppodHubble
+
+ 
   return (
     <article className='w-full py-12'>
       <div className="align-element h-full">

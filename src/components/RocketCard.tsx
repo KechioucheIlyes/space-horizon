@@ -23,8 +23,8 @@ const RocketCard = ({rocket} : {rocket : Rocket }) => {
             <p className="">Mass : {kg} kg</p>
             <p className="">First Flight : {first_flight.split('-').reverse().join('-')} </p>
             <p className="">Cost per launch : {cost_per_launch} $</p>
-            <div className="mt-2">Payload : {payload_weights.map(payload => 
-                <p className="">{payload.name} : {payload.kg} kgs</p>) } </div>
+            <div className="mt-2">Payload : {payload_weights.map((payload , index) => 
+                <p key={index} className="">{payload.name} : {payload.kg} kgs</p>) } </div>
             <p className="mt-2">Engines : </p>
             <p className="">{engines.number} {engines.type} (s) </p>
             <p className="">Props :{engines.propellant_1} + {engines.propellant_2}</p>

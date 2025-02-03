@@ -22,4 +22,4 @@ export {default as AppodLauncher } from "./AppodLauncher"
 export {default as WebbLauncher } from "./WebbLauncher"
 export {default as HubbleLauncher } from "./HubbleLauncher"
 export {default as NewsLauncherHeader } from "./NewsLauncherHeader"
-
+export {default as NewsLauncherSquaredCards} from "./NewsLauncherSquaredCards"

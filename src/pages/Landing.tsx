@@ -53,8 +53,7 @@ export const landingPageLoader : LoaderFunction = async() : Promise<LandingPageN
   }
 }
 const Landing = () => {
-  const data = useLoaderData() as LandingPageNewsAppodHubble
-  console.log("data", data);
+
   
   return (
     <section>

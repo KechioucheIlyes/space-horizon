@@ -5,10 +5,10 @@ import HubbleCard from './HubbleCard'
 import ImageCard from './ImageCard'
 import RocketCard from './RocketCard'
 
-const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesResponse | WebbImage[] | (Rocket | null)[] , mode:string}): ReactNode => {
+const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImages[] | WebbImage[] | (Rocket | null)[] , mode:string}): ReactNode => {
   
  if (mode==="hubble-page"){
-  return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">{(objects as HubbleImagesResponse).results.map((object , index) => (
+  return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">{(objects as HubbleImages[]).map((object , index) => (
     <HubbleCard key={index} image={object}/>
   ))}
     

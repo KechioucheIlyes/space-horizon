@@ -6,3 +6,4 @@ export {default as SpaceX} from "./SpaceX"
 export {default as Landing} from "./Landing"
 export {default as Webb} from './Webb'
 export {default as News} from './News'
+export {default as SingleHubble} from './SingleHubble'

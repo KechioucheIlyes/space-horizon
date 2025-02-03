@@ -10,6 +10,7 @@ import { hubblePageLoader } from './pages/Hubble'
 import { appodPageLoader } from './pages/Appod'
 import { webbPageLoader } from './pages/Webb'
 import { spaceXPageLoader } from './pages/SpaceX'
+import { landingPageLoader } from './pages/Landing'
 
 
 
@@ -17,7 +18,9 @@ const router = createBrowserRouter([
   {path : '/' , element:<HomeLayout/> , children:[
     {
     index :true,
-    element: <Landing/>
+    element: <Landing/>,
+    loader: landingPageLoader,
+    errorElement : <ErrorElement/>
     },
     {
     path :"news",

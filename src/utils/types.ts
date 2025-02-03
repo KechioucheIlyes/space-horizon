@@ -248,3 +248,10 @@ export type SpaceXNewsAndRockets = {
   news : News[] | null ;
   rockets : (Rocket | null)[] | null
 }
+
+
+export type LandingPageNewsAppodHubble = {
+  news :News[] | null;
+  appod : AppodType | null;
+  hubble : HubbleImages[] | null
+}

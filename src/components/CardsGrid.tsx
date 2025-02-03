@@ -33,7 +33,7 @@ const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImagesRespo
   return <div className="">
     {(objects as (Rocket | null)[]).map((object, index) => 
     
-    <RocketCard rocket={object}  key={index}/>
+     object && <RocketCard rocket={object}  key={index}/>
     
     )}
   </div>

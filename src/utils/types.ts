@@ -75,6 +75,7 @@ export type HubbleImagesResponseWithParams = {
 
 
 
+
 export type AppodType = {
     date :string;
     explanation :string;

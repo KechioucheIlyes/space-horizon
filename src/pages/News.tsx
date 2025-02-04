@@ -37,6 +37,7 @@ const News = () => {
       <Filters term={params.term} mode="news" key={params.term}/>
       <OverView objects={data}/>
       <CardsGrid objects={response} mode="news-page" />
+      <PaginationContainer/>
     </section>
   )
 }

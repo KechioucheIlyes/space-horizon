@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, OverView, Title } from "@/components"
+import { CardsGrid, Filters, OverView, PaginationContainer, Title } from "@/components"
 import { snapiCustomFetch } from "@/utils/custom-fetch"
 import { FilterParams, NewsResponse, NewsResponseWithParams } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router"
@@ -37,7 +37,7 @@ const News = () => {
       <Filters term={params.term} mode="news" key={params.term}/>
       <OverView objects={data}/>
       <CardsGrid objects={response} mode="news-page" />
-      <PaginationContainer/>
+      <PaginationContainer />
     </section>
   )
 }

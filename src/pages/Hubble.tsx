@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, OverView, Title } from "@/components"
+import { CardsGrid, Filters, OverView, PaginationContainer, Title } from "@/components"
 import { datastroCustomFetch } from "@/utils/custom-fetch"
 import { FilterParams, HubbleImages, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router-dom"
@@ -38,7 +38,8 @@ const Hubble = () => {
       <Title text="Hubble telescope photos"/>
       <Filters term={params.term} mode="hubble" key={params.term}/>
       <OverView objects={response} />
-      <CardsGrid objects={response} mode="hubble-page" />
+      <CardsGrid objects={response.results} mode="hubble-page" />
+      <PaginationContainer/>
     </div>
   )
 }

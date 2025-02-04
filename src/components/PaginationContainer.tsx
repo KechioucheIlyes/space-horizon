@@ -1,8 +1,7 @@
 import { buildPrevAndNextUrls, buildUrl } from '@/utils/pagination'
 import { HubbleImagesResponseWithParams, NewsResponseWithParams } from '@/utils/types'
-import React, { ReactNode } from 'react'
 import { useLoaderData, useLocation } from 'react-router-dom'
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination'
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination'
 
 const PaginationContainer = () => {
     // console.log(buildUrl({  page:7,pathname:'/news', search:'?term=hubble'}));

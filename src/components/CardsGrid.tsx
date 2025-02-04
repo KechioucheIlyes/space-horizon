@@ -1,4 +1,4 @@
-import {  HubbleImages, HubbleImagesResponse,  News,  NewsResponse, Rocket, WebbImage } from '@/utils/types'
+import {  HubbleImages,  News,  NewsResponse, Rocket, WebbImage } from '@/utils/types'
 import  { ReactNode } from 'react'
 import NewPageCard from './NewPageCard'
 import HubbleCard from './HubbleCard'

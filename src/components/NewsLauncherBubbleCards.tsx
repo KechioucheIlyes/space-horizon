@@ -1,4 +1,3 @@
-import React from 'react'
 import { News } from '../utils/types';
 import NewsBubble from './NewsBubble';
 

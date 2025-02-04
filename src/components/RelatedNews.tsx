@@ -10,7 +10,6 @@ const RelatedNews = ({news} : {news : News[]}) => {
             {news.map(newsItems => {
                 return <NewsCard key={newsItems.id} news={newsItems} />
             }) 
-            
             }
         </div>
     </div>

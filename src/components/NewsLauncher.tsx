@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NewsLauncherHeader from './NewsLauncherHeader'
 import NewsLauncherSquaredCards from './NewsLauncherSquaredCards'
 import { useLoaderData } from 'react-router'

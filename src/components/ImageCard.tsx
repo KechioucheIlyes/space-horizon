@@ -1,5 +1,4 @@
 import { WebbImage } from '@/utils/types'
-import React from 'react'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 
 const ImageCard = ({image }: {image: WebbImage}) => {

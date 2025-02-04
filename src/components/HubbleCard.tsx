@@ -1,5 +1,4 @@
 import { HubbleImages } from '@/utils/types'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle  , } from './ui/card'
 import { CircleArrowRight } from 'lucide-react'

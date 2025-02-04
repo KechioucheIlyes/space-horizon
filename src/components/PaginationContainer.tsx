@@ -6,13 +6,10 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 const PaginationContainer = () => {
     const {response} = useLoaderData() as HubbleImagesResponseWithParams | NewsResponseWithParams
      const {pathname , search} = useLocation()
-
      const searchParams = new URLSearchParams(search)
-
      const pageFromUrl:(string | null) = searchParams.get("page")
      const objectPerPage = 25
      const firstPage = 1 
-
      let activePage : number
 
      if(!pageFromUrl){
@@ -63,6 +60,7 @@ const buildBtn = ({page , isActive} : {page : number , isActive:boolean}) => {
         }
         pages.push(buildBtn({page:lastPage , isActive:activePage===lastPage }))
         return pages
+
     }
 
     if (lastPage < 2){

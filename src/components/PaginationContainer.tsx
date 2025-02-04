@@ -1,8 +1,8 @@
 import { buildPrevAndNextUrls, buildUrl } from '@/utils/pagination'
 import { HubbleImagesResponseWithParams, NewsResponseWithParams } from '@/utils/types'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { useLoaderData, useLocation } from 'react-router-dom'
-import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from './ui/pagination'
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination'
 
 const PaginationContainer = () => {
     // console.log(buildUrl({  page:7,pathname:'/news', search:'?term=hubble'}));
@@ -43,9 +43,26 @@ const PaginationContainer = () => {
 
      const {prevUrl , nextUrl} = buildPrevAndNextUrls({page:activePage , pathname , search ,last:lastPage})  
     
-     console.log(prevUrl);
-     console.log(activePage);
-     console.log(nextUrl);
+
+const buildBtn = ({page , isActive} : {page : number , isActive:boolean}) => {
+    const url = buildUrl({page , pathname , search } )
+    return <PaginationItem key={page} >
+        <PaginationLink to={url} isActive={isActive} size={'default'}>
+            {page}
+        </PaginationLink>
+    </PaginationItem>
+}
+
+    const BuildContent = () => {
+        let pages  = []
+
+        pages.push(buildBtn({page:firstPage , isActive:activePage===firstPage }))
+        if(activePage !== firstPage && activePage !== lastPage) {
+                    pages.push(buildBtn({page:activePage , isActive:true }))
+        }
+        pages.push(buildBtn({page:lastPage , isActive:activePage===lastPage }))
+        return pages
+    }
      
   return (
     <Pagination>
@@ -53,6 +70,7 @@ const PaginationContainer = () => {
             <PaginationItem>
                 <PaginationPrevious to={prevUrl} size={'default'}></PaginationPrevious>
             </PaginationItem>
+            {BuildContent()}
             <PaginationItem>
                 <PaginationNext to={nextUrl} size={'default'}></PaginationNext>
             </PaginationItem>

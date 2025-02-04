@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import noImage from './../assets/images/no-image.jpg'
 
 
-const NewsCard = ({news , classname} :{news : News , classname :string} ) => {
+const NewsCard = ({news , classname} :{news : News , classname?:string} ) => {
     const {image_url , title , news_site ,url} = news
 
     const handleImageError = (e:React.ChangeEvent<HTMLImageElement> )=> {

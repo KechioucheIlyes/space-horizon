@@ -1,4 +1,3 @@
-import ErrorMain from './ErrorMain';
 
 export {default as HomeLayout} from "./HomeLayout"
 export {default as Appod} from "./Appod"

@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 
 const RocketCard = ({rocket} : {rocket : Rocket }) => {
-    const {rocket_name , cost_per_launch ,flickr_images, description , diameter , height , mass , engines , first_flight , stages , second_stage , payload_weights , first_stage } = rocket
+    const {rocket_name , cost_per_launch ,flickr_images, description , diameter , height , mass , engines , first_flight , stages  , payload_weights , first_stage } = rocket
     const {meters : diam} = diameter
     const {meters : hght} = height
     const { kg} = mass

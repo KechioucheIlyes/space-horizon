@@ -1,6 +1,6 @@
 import { CardsGrid, Filters, OverView, PaginationContainer, Title } from "@/components"
 import { datastroCustomFetch } from "@/utils/custom-fetch"
-import { FilterParams, HubbleImages, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types"
+import { FilterParams, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router-dom"
 
 

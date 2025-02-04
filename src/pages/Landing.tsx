@@ -1,7 +1,7 @@
 import { AppodLauncher, HubbleLauncher, NewsLauncher, SpaceXLauncher, WebbLauncher } from "@/components";
 import { apodNasaCustomFetch, datastroCustomFetch, snapiCustomFetch } from "@/utils/custom-fetch"
 import { AppodType, HubbleImages, HubbleImagesResponse, LandingPageNewsAppodHubble, News, NewsResponse } from "@/utils/types";
-import { LoaderFunction, useLoaderData } from "react-router"
+import { LoaderFunction } from "react-router"
 const newsParams = { ordering: "-published_at" };
 
 const hubbleParams = {

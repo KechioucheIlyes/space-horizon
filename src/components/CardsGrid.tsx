@@ -8,14 +8,14 @@ import RocketCard from './RocketCard'
 const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImages[] | WebbImage[] | (Rocket | null)[] , mode:string}): ReactNode => {
   
  if (mode==="hubble-page"){
-  return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">{(objects as HubbleImages[]).map((object , index) => (
+  return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">{(objects as HubbleImages[]).map((object , index) => (
     <HubbleCard key={index} image={object}/>
   ))}
     
     </div>
  }else if (mode==="news-page"){
   return (
-    <div className='grid grid-cols-1 gap-y-4 auto-rows-[600px] lg:auto-rows-[300px] mb-12'>
+    <div className='grid grid-cols-1 gap-y-4 auto-rows-[600px] lg:auto-rows-[300px] mb-16'>
         {(objects as NewsResponse ).results.map((object, index) => 
 
             <NewPageCard news={object as News} key={index}/>

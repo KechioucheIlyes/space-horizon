@@ -2,6 +2,7 @@ import { buildPrevAndNextUrls, buildUrl } from '@/utils/pagination'
 import { HubbleImagesResponseWithParams, NewsResponseWithParams } from '@/utils/types'
 import React from 'react'
 import { useLoaderData, useLocation } from 'react-router-dom'
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from './ui/pagination'
 
 const PaginationContainer = () => {
     // console.log(buildUrl({  page:7,pathname:'/news', search:'?term=hubble'}));
@@ -34,15 +35,29 @@ const PaginationContainer = () => {
 
      if(totalObject===0){
         lastPage =0
-     }else if (totalObject % objectPerPage){
+     }else if (totalObject % objectPerPage === 0){
         lastPage = totalObject / objectPerPage
      }else {
         lastPage = Math.floor(totalObject / objectPerPage) +1
      }
 
-     console.log("location",location)
+     const {prevUrl , nextUrl} = buildPrevAndNextUrls({page:activePage , pathname , search ,last:lastPage})  
+    
+     console.log(prevUrl);
+     console.log(activePage);
+     console.log(nextUrl);
+     
   return (
-    <div>PaginationContainer</div>
+    <Pagination>
+        <PaginationContent>
+            <PaginationItem>
+                <PaginationPrevious to={prevUrl} size={'default'}></PaginationPrevious>
+            </PaginationItem>
+            <PaginationItem>
+                <PaginationNext to={nextUrl} size={'default'}></PaginationNext>
+            </PaginationItem>
+        </PaginationContent>
+    </Pagination>
   )
 }
 

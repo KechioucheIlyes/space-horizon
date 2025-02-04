@@ -4,7 +4,6 @@ import { useLoaderData, useLocation } from 'react-router-dom'
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination'
 
 const PaginationContainer = () => {
-    // console.log(buildUrl({  page:7,pathname:'/news', search:'?term=hubble'}));
     const {response} = useLoaderData() as HubbleImagesResponseWithParams | NewsResponseWithParams
      const {pathname , search} = useLocation()
 
@@ -56,7 +55,7 @@ const buildBtn = ({page , isActive} : {page : number , isActive:boolean}) => {
 }
 
     const BuildContent = () => {
-        let pages  = []
+        const pages  = []
 
         pages.push(buildBtn({page:firstPage , isActive:activePage===firstPage }))
         if(activePage !== firstPage && activePage !== lastPage) {

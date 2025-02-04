@@ -47,6 +47,7 @@ try {
   const [news ,imagery] = await Promise.all([newsFetch() , imageryFetch()])
   return {news , imagery}
 } catch (error) {
+  console.log(error)
   return null 
 }
 }

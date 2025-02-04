@@ -30,7 +30,7 @@ const News = () => {
   const data =useLoaderData() as NewsResponseWithParams
 
   const {response , params} =data
-  console.log(data);
+
   
   return (
     <section className="section">

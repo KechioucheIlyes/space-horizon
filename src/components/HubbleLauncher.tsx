@@ -7,7 +7,7 @@ import CardsGrid from "./CardsGrid";
 
 const HubbleLauncher = () => {
   const {hubble} = useLoaderData() as LandingPageNewsAppodHubble
-  console.log("data", hubble);
+
 
   if(!hubble){
     return <>Probleme here...</>

@@ -25,7 +25,6 @@ export const appodPageLoader:LoaderFunction = async (): Promise<AppodType | null
 
 const Appod = () => {
   const defualtAppod =  useLoaderData() as AppodType
-  console.log(defualtAppod);
   const [data , setData] = useState<AppodType>(defualtAppod)
   const [day , setDay] = useState<number>(0)
   const [loading , setLoading] = useState<boolean>(false)

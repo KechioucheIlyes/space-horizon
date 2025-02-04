@@ -31,7 +31,7 @@ export const newsFetch = async ():Promise<News[] | null>=> {
 export const rocketFetch = async (rocketUrl : string) : Promise<Rocket | null>=> {
   try {
     const resp = await spacexCustomFetch.get<Rocket>(rocketUrl)
-    console.log(resp.data);
+
     return resp.data
   } catch (error) {
     console.log(error);

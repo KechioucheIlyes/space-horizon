@@ -32,7 +32,7 @@ export const hubblePageLoader:LoaderFunction = async({request}) :Promise<HubbleI
 const Hubble = () => {
   const data = useLoaderData() as HubbleImagesResponseWithParams
   const {response , params} =data
-  console.log(data);
+
   
   return (
     <div className="section">

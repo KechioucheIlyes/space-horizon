@@ -9,7 +9,7 @@ const ImageCard = ({image }: {image: WebbImage}) => {
     <Card className='bg-muted'>
         <CardHeader>{mission}</CardHeader>
         <CardContent>
-            <img src={location} alt={`${location}-image`} className='w-full'/>
+            <img src={location} alt={`${location}-image`} className='w-full rounded-lg'/>
         </CardContent>
         <CardFooter>
             <p>{description}</p>

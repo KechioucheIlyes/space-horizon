@@ -4,9 +4,11 @@ const ErrorElement = () => {
     const error = useRouteError()
     console.log('error Router Error :',error  )
   return (
-    <h4>
-        Une erreur est survenue 🙁 veuillez nous en excusez !
-    </h4>
+    <div className="section">
+      <h4>
+          Une erreur est survenue 🙁 veuillez nous en excusez !
+      </h4>
+    </div>
   )
 }
 

@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
-import { Appod, HomeLayout, Hubble, Landing, News, SingleHubble, SpaceX, Webb } from './pages'
+import { Appod, ErrorMain, HomeLayout, Hubble, Landing, News, SingleHubble, SpaceX, Webb } from './pages'
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
@@ -15,8 +15,11 @@ import { singleHubblePageLoader } from './pages/SingleHubble'
 
 
 
+
 const router = createBrowserRouter([
-  {path : '/' , element:<HomeLayout/> , children:[
+  {path : '/' , element:<HomeLayout/> ,
+    errorElement : <ErrorMain/>,
+    children:[
     {
     index :true,
     element: <Landing/>,

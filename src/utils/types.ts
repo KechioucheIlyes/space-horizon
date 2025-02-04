@@ -27,7 +27,8 @@ export type NewsResponse = {
     results : News[]
 }
 export type FilterParams = {
-    term?: string
+    term?: string;
+    page?: string
 }
 
 

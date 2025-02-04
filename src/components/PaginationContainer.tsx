@@ -2,7 +2,7 @@ import { buildPrevAndNextUrls, buildUrl } from '@/utils/pagination'
 import { HubbleImagesResponseWithParams, NewsResponseWithParams } from '@/utils/types'
 import React, { ReactNode } from 'react'
 import { useLoaderData, useLocation } from 'react-router-dom'
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination'
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination'
 
 const PaginationContainer = () => {
     // console.log(buildUrl({  page:7,pathname:'/news', search:'?term=hubble'}));
@@ -47,9 +47,12 @@ const PaginationContainer = () => {
 const buildBtn = ({page , isActive} : {page : number , isActive:boolean}) => {
     const url = buildUrl({page , pathname , search } )
     return <PaginationItem key={page} >
+
         <PaginationLink to={url} isActive={isActive} size={'default'}>
+            
             {page}
         </PaginationLink>
+
     </PaginationItem>
 }
 
@@ -62,6 +65,10 @@ const buildBtn = ({page , isActive} : {page : number , isActive:boolean}) => {
         }
         pages.push(buildBtn({page:lastPage , isActive:activePage===lastPage }))
         return pages
+    }
+
+    if (lastPage < 2){
+        return null
     }
      
   return (

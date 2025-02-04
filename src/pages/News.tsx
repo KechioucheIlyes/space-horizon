@@ -13,6 +13,7 @@ try {
   const params:FilterParams = Object.fromEntries([...new URL(request.url).searchParams.entries()])
   const formattedParams = {
     search: params.term ? params.term : "",
+    offset : params.page ? 24 * (parseFloat( params.page) -1) : 0,
     ...newParams
   }
   const resp = await snapiCustomFetch.get<NewsResponse>("" , {

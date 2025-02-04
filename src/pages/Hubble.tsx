@@ -7,7 +7,7 @@ import { LoaderFunction, useLoaderData } from "react-router-dom"
 
 const hubbleParams = {
   order_by:'photo_date_taken desc',
-  limit : 24
+  limit : 25
 }
 
 export const hubblePageLoader:LoaderFunction = async({request}) :Promise<HubbleImagesResponseWithParams | null>  => {
@@ -16,7 +16,7 @@ export const hubblePageLoader:LoaderFunction = async({request}) :Promise<HubbleI
     
     const formattedParams = {
       where : params.term ? `photo_title like "${params.term}"` : '',
-      offset : params.page ? 24 * (parseFloat( params.page) -1) : 0,
+      offset : params.page ? 25 * (parseFloat( params.page) -1) : 0,
       ...hubbleParams
     }
     const resp = await datastroCustomFetch.get<HubbleImagesResponse>("" , {params :formattedParams })

@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { datastroCustomFetch } from '@/utils/custom-fetch';
 import { HubbleImages, HubbleImagesResponse } from '@/utils/types';
 import { CircleArrowLeft } from 'lucide-react';
+import { useEffect } from 'react';
 import { LoaderFunction, useLoaderData, useNavigate } from 'react-router-dom';
 
 export const singleHubblePageLoader:LoaderFunction = async({params}) : Promise<HubbleImages | null>=> {
@@ -21,9 +22,13 @@ const SingleHubble = () => {
     const { photo_date_taken , album_name_tags , photo_description , photo_title , photo_url_m , photo_license } = useLoaderData() as HubbleImages
     const nav = useNavigate()
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
   return (
     <section className='section'>
-<CircleArrowLeft onClick={() => nav(-1)}/>
+<CircleArrowLeft className='cursor-pointer' onClick={() => nav(-1)}/>
         <Title text='Hubble telescope photo' />
         <Card>
             <CardHeader>
@@ -38,9 +43,9 @@ const SingleHubble = () => {
             </CardHeader>
             <CardContent>
                 <img className='w-full h-full rounded-lg' src={photo_url_m.url} alt={`${photo_title}-image`}/>
-                <p className="mt-4">{photo_description}</p>
+                <p className="mt-4 text-center">{photo_description}</p>
             </CardContent>
-            <CardFooter>{photo_license}</CardFooter>
+            <CardFooter className="flex justify-center text-center">- {photo_license} -</CardFooter>
         </Card>
     </section>
   )

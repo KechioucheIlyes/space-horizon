@@ -15,7 +15,7 @@ const CardsGrid = ({objects , mode} : {objects: NewsResponse | HubbleImages[] | 
     </div>
  }else if (mode==="news-page"){
   return (
-    <div className='grid grid-cols-1 gap-y-4 auto-rows-[600px] lg:auto-rows-[300px] mb-16'>
+    <div className='grid grid-cols-1 gap-y-4 auto-rows-[600px] border-2 border-red-600 lg:auto-rows-[300px] mb-16'>
         {(objects as NewsResponse ).results.map((object, index) => 
 
             <NewPageCard news={object as News} key={index}/>

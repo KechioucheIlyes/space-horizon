@@ -10,14 +10,13 @@ const NewPageCard = ({news} : {news : News , key:number}) => {
     }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-x-3 ">
+    <div className="flex flex-col  grid-cols-1 lg:grid-cols-4 lg:grid lg: gap-x-3  ">
         <div className="p-2 overflow-hidden lg:col-span-1 h-[300px] md:h-[400px] lg:h-full ">
             <Link to={url} target="_blank"  >
-
-            <img  src={image_url } alt={`${title}-img`} onError={handleImageError} className=" w-full h-full object-cover rounded-lg "/>
+                <img  src={image_url } alt={`${title}-img`} onError={handleImageError} className=" w-full h-full object-cover rounded-lg "/>
             </Link>
         </div>
-        <div className="p-2 overflow-hidden lg:col-span-3 h-[350px] md:h-[200px] lg:h-full">
+        <div className="p-2 overflow-hidden  lg:col-span-3 h-[350px] md:h-[300px] lg:h-full">
             <p className="text-2xl font-bold">
                 {title}
             </p>
@@ -36,7 +35,7 @@ const NewPageCard = ({news} : {news : News , key:number}) => {
             </div>
 
 
-            <p className="mt-4 ">{summary}</p>
+            <p className="mt-4">{summary}</p>
 
             </div>
            

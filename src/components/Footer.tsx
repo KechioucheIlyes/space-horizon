@@ -8,7 +8,7 @@ const Footer = () => {
         <p className="my-2">-2025-</p>
         <div className="flex flex-row gap-2 mars-font ">
         <p className="mars-font text-center">Space Horizon,</p> 
-        <p>by Ilyes</p>
+        <p>Fais par Youssef Zerri</p>
 
         </div>
         <p className="underline">Resources :</p>

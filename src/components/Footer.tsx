@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className='bg-black text-white'>
       <div className="align-element min-h-[15vh] flex flex-col justify-center items-center gap-4">
-        <p className="my-2">-2025-</p>
+        <p className="my-2">-2026-</p>
         <div className="flex flex-row gap-2 mars-font ">
         <p className="mars-font text-center">Space Horizon,</p> 
         <p>Fais par Youssef Zerri</p>

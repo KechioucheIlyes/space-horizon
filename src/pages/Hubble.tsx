@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, OverView, PaginationContainer, Title } from "@/components"
+import { CardsGrid, DataError, Filters, OverView, PaginationContainer, Title } from "@/components"
 import { datastroCustomFetch } from "@/utils/custom-fetch"
 import { FilterParams, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router-dom"
@@ -11,9 +11,8 @@ const hubbleParams = {
 }
 
 export const hubblePageLoader:LoaderFunction = async({request}) :Promise<HubbleImagesResponseWithParams | null>  => {
+  const params:FilterParams = Object.fromEntries([...new URL(request.url).searchParams.entries()])
   try {
-      const params:FilterParams = Object.fromEntries([...new URL(request.url).searchParams.entries()])
-    
     const formattedParams = {
       where : params.term ? `photo_title like "${params.term}"` : '',
       offset : params.page ? 25 * (parseFloat( params.page) -1) : 0,
@@ -25,12 +24,15 @@ export const hubblePageLoader:LoaderFunction = async({request}) :Promise<HubbleI
 
   } catch (error) {
     console.log('error' , error)
-    return null
+    return {response: {total_count: 0, results: []}, params}
   }
 }
 
 const Hubble = () => {
   const data = useLoaderData() as HubbleImagesResponseWithParams
+  if(!data){
+    return <DataError/>
+  }
   const {response , params} =data
 
   

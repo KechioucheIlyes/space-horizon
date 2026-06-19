@@ -5,7 +5,7 @@ import './index.css'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import { Appod, ErrorMain, HomeLayout, Hubble, Landing, News, SingleHubble, SpaceX, Webb } from './pages'
 import { newsPageLoader } from './pages/News'
-import { ErrorElement } from './components'
+import { ErrorElement, LoadingFallback } from './components'
 import { hubblePageLoader } from './pages/Hubble'
 import { appodPageLoader } from './pages/Appod'
 import { webbPageLoader } from './pages/Webb'
@@ -19,6 +19,7 @@ import { singleHubblePageLoader } from './pages/SingleHubble'
 const router = createBrowserRouter([
   {path : '/' , element:<HomeLayout/> ,
     errorElement : <ErrorMain/>,
+    hydrateFallbackElement: <LoadingFallback/>,
     children:[
     {
     index :true,

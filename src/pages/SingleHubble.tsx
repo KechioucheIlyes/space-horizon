@@ -1,4 +1,4 @@
-import { Title } from '@/components';
+import { DataError, Title } from '@/components';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { datastroCustomFetch } from '@/utils/custom-fetch';
 import { HubbleImages, HubbleImagesResponse } from '@/utils/types';
@@ -19,12 +19,18 @@ try {
 }
 
 const SingleHubble = () => {
-    const { photo_date_taken , album_name_tags , photo_description , photo_title , photo_url_m , photo_license } = useLoaderData() as HubbleImages
+    const data = useLoaderData() as HubbleImages | null
     const nav = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    if(!data){
+        return <DataError/>
+    }
+
+    const { photo_date_taken , album_name_tags , photo_description , photo_title , photo_url_m , photo_license } = data
 
   return (
     <section className='section'>

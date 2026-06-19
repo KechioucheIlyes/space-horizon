@@ -1,4 +1,4 @@
-import { CardsGrid, RelatedNews, Title } from "@/components"
+import { CardsGrid, DataError, RelatedNews, Title } from "@/components"
 import WebTelescopSummary from "@/components/WebTelescopSummary"
 import { jwstCustomFetch, snapiCustomFetch } from "@/utils/custom-fetch"
 import { News, NewsResponse, WebbImage, WebbImageResponse, WebbNewsAndImagery } from "@/utils/types"
@@ -48,13 +48,17 @@ try {
   return {news , imagery}
 } catch (error) {
   console.log(error)
-  return null 
+  return {news: null, imagery: null}
 }
 }
 
 
 const Webb = () => {
-  const {news , imagery} = useLoaderData() as WebbNewsAndImagery
+  const data = useLoaderData() as WebbNewsAndImagery | null
+  if(!data){
+    return <DataError/>
+  }
+  const {news , imagery} = data
   return (
     <section className="section">
       <Title text="James Web Telescope"/>

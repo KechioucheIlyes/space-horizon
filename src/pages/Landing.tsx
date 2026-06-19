@@ -43,12 +43,16 @@ export const hubbleFetch = async ():Promise<HubbleImages[] | null> => {
 
 export const landingPageLoader : LoaderFunction = async() : Promise<LandingPageNewsAppodHubble | null>=> {
   try {
-    const [news , appod , hubble] = await Promise.all([newsFetch() , appodFetch() , hubbleFetch()])
+    const [news , appod , hubble] = await Promise.allSettled([newsFetch() , appodFetch() , hubbleFetch()])
 
-    return {news , appod , hubble}
+    return {
+      news: news.status === 'fulfilled' ? news.value : null,
+      appod: appod.status === 'fulfilled' ? appod.value : null,
+      hubble: hubble.status === 'fulfilled' ? hubble.value : null,
+    }
   } catch (error) {
     console.log(error);
-    return null
+    return {news: null, appod: null, hubble: null}
     
   }
 }

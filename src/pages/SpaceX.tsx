@@ -1,4 +1,4 @@
-import { CardsGrid, RelatedNews, Title } from "@/components"
+import { CardsGrid, DataError, RelatedNews, Title } from "@/components"
 import { snapiCustomFetch, spacexCustomFetch } from "@/utils/custom-fetch"
 import { News, NewsResponse, Rocket, SpaceXNewsAndRockets } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router"
@@ -58,13 +58,17 @@ export const spaceXPageLoader:LoaderFunction = async ():Promise<SpaceXNewsAndRoc
     return {news , rockets} 
   } catch (error) {
     console.log(error);
-    return null
+    return {news: null, rockets: null}
     
   }
 }
 const SpaceX = () => {
 
-const {news, rockets} = useLoaderData() as SpaceXNewsAndRockets
+const data = useLoaderData() as SpaceXNewsAndRockets | null
+if(!data){
+  return <DataError/>
+}
+const {news, rockets} = data
   return (
     <section className="section" >
       {news && <RelatedNews news={news}/>}

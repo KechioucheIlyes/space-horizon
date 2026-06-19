@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, OverView, PaginationContainer, Title } from "@/components"
+import { CardsGrid, DataError, Filters, OverView, PaginationContainer, Title } from "@/components"
 import { snapiCustomFetch } from "@/utils/custom-fetch"
 import { FilterParams, NewsResponse, NewsResponseWithParams } from "@/utils/types"
 import { LoaderFunction, useLoaderData } from "react-router"
@@ -9,8 +9,8 @@ const newParams = {
   ordering : "-published_at"
 }
 export const newsPageLoader:LoaderFunction = async({request}):Promise<NewsResponseWithParams| null> => {
+const params:FilterParams = Object.fromEntries([...new URL(request.url).searchParams.entries()])
 try {
-  const params:FilterParams = Object.fromEntries([...new URL(request.url).searchParams.entries()])
   const formattedParams = {
     search: params.term ? params.term : "",
     offset : params.page ? 25 * (parseFloat( params.page) -1) : 0,
@@ -22,12 +22,15 @@ try {
   return {response : resp.data , params}
 } catch (error) {
   console.log(error);
-  return null
+  return {response: {count: 0, next: "", previous: "", results: []}, params}
   
 }
 }
 const News = () => {
   const data =useLoaderData() as NewsResponseWithParams
+  if(!data){
+    return <DataError/>
+  }
 
   const {response , params} =data
 

@@ -1,4 +1,4 @@
-import { AppodPlayer, Title } from "@/components"
+import { AppodPlayer, DataError, Title } from "@/components"
 import { apodNasaCustomFetch } from "@/utils/custom-fetch"
 import { numberToDate } from "@/utils/function"
 import { AppodType } from "@/utils/types"
@@ -24,8 +24,8 @@ export const appodPageLoader:LoaderFunction = async (): Promise<AppodType | null
 }
 
 const Appod = () => {
-  const defualtAppod =  useLoaderData() as AppodType
-  const [data , setData] = useState<AppodType>(defualtAppod)
+  const defualtAppod =  useLoaderData() as AppodType | null
+  const [data , setData] = useState<AppodType | null>(defualtAppod)
   const [day , setDay] = useState<number>(0)
   const [loading , setLoading] = useState<boolean>(false)
 
@@ -45,8 +45,20 @@ const fetchAppod =async (day:number):Promise<void | null> => {
 }
 
   useEffect(()=> {
+    if(day === 0 && defualtAppod){
+      return
+    }
     fetchAppod(day)
-  }, [day])
+  }, [day, defualtAppod])
+
+  if(!data){
+    return (
+      <section>
+        <Title text="Nasa's Astronomy picture of the day"/>
+        <DataError/>
+      </section>
+    )
+  }
   
   return (
     <section className="">

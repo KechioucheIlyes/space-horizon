@@ -4,6 +4,8 @@ export {default as Navbar} from "./Navbar"
 export {default as LinksDesktop} from './LinksDesktop'
 export {default as LinksMobile} from './LinksMobile'
 export {default as ErrorElement} from "./ErrorElement"
+export {default as LoadingFallback} from "./LoadingFallback"
+export {default as DataError} from "./DataError"
 export {default as CardsGrid} from "./CardsGrid"
 export {default as NewPageCard} from "./NewPageCard"
 export {default as Title} from "./Title"
